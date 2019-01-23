@@ -11,14 +11,12 @@
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_marginTop="0dp"
-        android:layout_toEndOf="@+id/rssFeedItemImageView"
-        android:layout_toRightOf="@+id/rssFeedItemImageView"
         android:ems="10"
         android:text="Title RSS Feed"
         />
 
     <TextView
-        android:id="@+id/rssEditFeedDescriptionTextView"
+        android:id="@+id/rssEditFeedAddressTextView"
         android:layout_width="wrap_content"
         android:layout_height="62dp"
         android:layout_alignEnd="@+id/rssEditFeedTitleTextView"

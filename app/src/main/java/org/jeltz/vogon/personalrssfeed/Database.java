@@ -6,6 +6,7 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -27,7 +28,7 @@ public class Database extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase db) {
         //Method to create table in bd for RSS feeds
-        String CREATE_FEEDS_TABLE = "CREATE TABLE " + TABLE_FEEDS + "(" + KEY_ID + " INTERGER PRIMARY KEY," + KEY_FEEDTITLE + " TEXT" + KEY_FEEDADDRESS + " TEXT" + ")";
+        String CREATE_FEEDS_TABLE = "CREATE TABLE " + TABLE_FEEDS + "(" + KEY_ID + " INTERGER PRIMARY KEY," + KEY_FEEDTITLE + " TEXT," + KEY_FEEDADDRESS + " TEXT" + ")";
         db.execSQL(CREATE_FEEDS_TABLE);
     }
 
@@ -44,13 +45,13 @@ public class Database extends SQLiteOpenHelper {
 
         ContentValues values = new ContentValues();
         values.put(KEY_FEEDTITLE, feed.rssFeedTitle);
-        values.put(KEY_FEEDADDRESS, feed.rssFeedAdress);
+        values.put(KEY_FEEDADDRESS, feed.rssFeedAddress);
 
         db.insert(TABLE_FEEDS, null, values);
         db.close();
     }
 
-    public list<RssFeed> getRssFeeds(){
+    public List<RssFeed> getRssFeeds(){
         List<RssFeed> results = new ArrayList<RssFeed>();
 
         String selectQuery = "SELECT * FROM " + TABLE_FEEDS;
@@ -59,7 +60,7 @@ public class Database extends SQLiteOpenHelper {
 
         if(cursor.moveToFirst()){
             do{
-                RssFeed rssFeed = new RssFeed(Interger.parseInt(cursor.getString(0)), cursor.getString(1), cursor.getString(2));
+                RssFeed rssFeed = new RssFeed(Integer.parseInt(cursor.getString(0)), cursor.getString(1), cursor.getString(2));
                 results.add(rssFeed);
             } while(cursor.moveToNext());
         }

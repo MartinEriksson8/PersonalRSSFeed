@@ -5,5 +5,7 @@
     <string name="addFeedButtonText">Save Feed</string>
     <string name="addFeedTextPlaceholder">Enter RSS feed</string>
     <string name="title_activity_edit_rss_feed">Edit RSS Feed</string>
+    <string name="add_rss_feed_name_hint">Enter name for feed</string>
+    <string name="add_rss_feed_address_hint">Enter address for feed</string>
 
 </resources>
